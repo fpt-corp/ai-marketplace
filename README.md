@@ -9,24 +9,26 @@ The AI Marketplace API uses API keys for authentication. Please contact our team
 ```python
 from litellm import acompletion
 import json
+import asyncio
+
 async def stream_response():
     try:
         # Initialize the completion request
         response = await acompletion(
-            model="your-model-name",              # The model you want to use
-            api_base="your-api-endpoint",         # Base URL for API
-            api_key="your-api-key",              # Your API key
-            messages=[                            # List of message objects
+            model="openai/{model-name}",  # Prefix required openai/
+            api_base="{api-endpoint}",    # Base URL for API
+            api_key="{api-key}",          # Your API key
+            messages=[                    # List of message objects
                 {
                     "role": "system",
-                    "content": "Use english to answer all question."
+                    "content": "Use English to answer all questions."
                 },
                 {
                     "role": "user",
-                    "content": "your-input-text"
+                    "content": "{your-input-text}"
                 }
             ],
-            stream=True                          # Enable streaming
+            stream=True  # Enable streaming
         )
         # Process streaming response
         async for chunk in response:
@@ -35,6 +37,13 @@ async def stream_response():
     except Exception as e:
         yield f"data: {json.dumps({'error': str(e)})}\n\n"
     yield "data: [DONE]\n\n"
+
+async def main():
+    async for data in stream_response():
+        print(data)
+
+if __name__ == '__main__':
+    asyncio.run(main())
 ```
 ### Key Parameters Explained
 - `model`: String identifier for the model you want to use
