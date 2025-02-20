@@ -65,7 +65,7 @@ The code includes try-catch block to handle potential errors during the API call
 - Each chunk is JSON-encoded and prefixed with "data: "
 - The stream ends with a [DONE] marker
 
-# List of Available Models
+## List of Available Models
 
 - Llama3-Swallow-70B  
 - DeepSeek-R1-Distill-Qwen-32B  
