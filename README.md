@@ -76,6 +76,7 @@ The code includes try-catch block to handle potential errors during the API call
 
 ## List of Available Models
 
+- DeepSeek-R1
 - DeepSeek-R1-Distill-Llama-70B  
 - DeepSeek-R1-Distill-Llama-8B  
 - DeepSeek-R1-Distill-Qwen-1.5B  
