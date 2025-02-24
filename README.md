@@ -76,16 +76,16 @@ The code includes try-catch block to handle potential errors during the API call
 
 ## List of Available Models
 
-- Llama3-Swallow-70B  
-- DeepSeek-R1-Distill-Qwen-32B  
 - DeepSeek-R1-Distill-Llama-70B  
 - DeepSeek-R1-Distill-Llama-8B  
-- SaoLa-Llama3.1-planner  
-- Qwen2.5-7B-chat  
-- DeepSeek-R1-Distill-Qwen-1.5B   
-- Llama-Guard-3-8B  
+- DeepSeek-R1-Distill-Qwen-1.5B  
+- DeepSeek-R1-Distill-Qwen-32B  
 - Llama-3.1-8B-Instruct  
+- Llama-3.3-70B-Instruct  
+- Llama3-Swallow-70B  
+- Llama-Guard-3-8B  
+- Qwen2.5-7B-chat  
 - Qwen2.5-Coder-32B-Instruct  
-- LLama-3.3-70B-Instruct  
+- SaoLa-Llama3.1-planner
 
 > Note: You can access your subscribed models only.
