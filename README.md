@@ -16,7 +16,7 @@ async def stream_response():
         # Initialize the completion request
         response = await acompletion(
             model="openai/{model-name}",  # Prefix required openai/
-            api_base="{api-endpoint}",    # Base URL for API
+            api_base="https://mkp-api.fptcloud.com",    # Base URL for API
             api_key="{api-key}",          # Your API key
             messages=[                    # List of message objects
                 {
