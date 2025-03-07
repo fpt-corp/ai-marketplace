@@ -1,3 +1,5 @@
+# Using LiteLLM
+
 ## Installation
 ```bash
 pip install litellm
@@ -45,6 +47,55 @@ async def main():
 if __name__ == '__main__':
     asyncio.run(main())
 ```
+# Python
+```python
+import requests
+import json
+
+url = "https://mkp-api.fptcloud.com/chat/completions"
+
+token = ""
+headers = {
+    "Content-Type": "application/json",
+    "Authorization": f"Bearer {token}"
+}
+
+data = {
+    "model": "DeepSeek-R1-Distill-Llama-8B",
+    "messages": [
+        {
+            "role": "user",
+            "content": "hi"
+        }
+    ],
+    "stream": True
+}
+
+# Since stream=True, we need to handle streaming response
+response = requests.post(url, headers=headers, data=json.dumps(data), stream=True)
+
+# Process the streaming response
+for line in response.iter_lines():
+    if line:
+        # Skip the "data: " prefix if present
+        line_text = line.decode('utf-8')
+        if line_text.startswith('data: '):
+            line_text = line_text[6:]
+        
+        # Skip empty lines or "[DONE]" message
+        if line_text == "[DONE]":
+            break
+        
+        try:
+            # Parse the JSON response chunk
+            json_response = json.loads(line_text)
+            # Process the chunk as needed
+            print(json_response)
+        except json.JSONDecodeError:
+            # Handle non-JSON lines
+            print(f"Cannot parse: {line_text}")
+```
+
 ### Key Parameters Explained
 - `model`: String identifier for the model you want to use
 - `api_base`: The base URL endpoint for your API
