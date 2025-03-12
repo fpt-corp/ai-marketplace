@@ -20,7 +20,7 @@ async def stream_response():
             model="openai/{model-name}",  # Prefix required openai/
             api_base="https://mkp-api.fptcloud.com",    # Base URL for API
             api_key="{api-key}",          # Your API key
-            messages=[                    # List of message objects
+            messages=[                    # List of message objects. You are able to update System prompt for each model
                 {
                     "role": "system",
                     "content": "Use English to answer all questions."
