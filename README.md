@@ -62,13 +62,18 @@ headers = {
 
 data = {
     "model": "DeepSeek-R1-Distill-Llama-8B",
-    "messages": [
+
+    "messages": [                                      # List of message objects. Please update the System prompt to have the model respond appropriately
+        {
+            "role": "system",
+            "content": "Use English to answer all questions."
+        },
         {
             "role": "user",
-            "content": "hi"
+            "content": "{your-input-text}"
         }
     ],
-    "stream": True
+    "stream": True                                      # Enable streaming
 }
 
 # Since stream=True, we need to handle streaming response
