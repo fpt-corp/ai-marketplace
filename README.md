@@ -139,7 +139,7 @@ The code includes try-catch block to handle potential errors during the API call
 - DeepSeek-R1-Distill-Qwen-32B  
 - Llama-3.1-8B-Instruct  
 - Llama-3.3-70B-Instruct  
-- Llama3-Swallow-70B  
+- Llama-3-Swallow-70B-v0.1
 - Llama-Guard-3-8B  
 - Qwen2.5-7B-chat  
 - Qwen2.5-Coder-32B-Instruct  
