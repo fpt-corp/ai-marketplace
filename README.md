@@ -23,7 +23,7 @@ async def stream_response():
             messages=[                    # List of message objects. Please update the System prompt to have the model respond appropriately
                 {
                     "role": "system",
-                    "content": "Use English to answer all questions."
+                    "content": "You are a helpful assistant capable of understanding a user's needs through conversation to recommend suitable services. Based on the conversation history and the user's last message, list services that can address the user's needs. Respond only in Vietnamese or English, matching the language of the user's input."
                 },
                 {
                     "role": "user",
@@ -61,12 +61,12 @@ headers = {
 }
 
 data = {
-    "model": "DeepSeek-R1-Distill-Llama-8B",
+    "model": "{model-name}",                           # Model name
 
     "messages": [                                      # List of message objects. Please update the System prompt to have the model respond appropriately
         {
             "role": "system",
-            "content": "Use English to answer all questions."
+            "content": "You are a helpful assistant capable of understanding a user's needs through conversation to recommend suitable services. Based on the conversation history and the user's last message, list services that can address the user's needs. Respond only in Vietnamese or English, matching the language of the user's input."
         },
         {
             "role": "user",
@@ -100,7 +100,27 @@ for line in response.iter_lines():
             # Handle non-JSON lines
             print(f"Cannot parse: {line_text}")
 ```
-
+# cURL
+```cURL
+curl --location "https://mkp-api.fptcloud.com/chat/completions" \
+--header "Content-Type: application/json" \
+--header "Authorization: Bearer YOUR_API_KEY" \
+--data '{
+    "model": "YOUR_MODEL_NAME",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are a helpful assistant capable of understanding a user\s needs through conversation to recommend suitable services. Based on the conversation history and the user'\''s last message, list services that can address the user'\''s needs. Respond only in Vietnamese or English, matching the language of the user'\''s input."
+      },
+      {
+        "role": "user",
+        "content": "Hi."
+      }
+    ],
+    "stream": false
+  }'
+ 
+```
 ### Key Parameters Explained
 - `model`: String identifier for the model you want to use
 - `api_base`: The base URL endpoint for your API
