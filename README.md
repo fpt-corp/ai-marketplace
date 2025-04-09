@@ -7,7 +7,7 @@ The AI Marketplace API uses API keys for authentication. Create, manage, and lea
 > Do not share it with others or expose it in any client-side code (browsers, apps).  
 > API keys should be securely loaded from an environment variable or key management service on the server.
 
-* Authentication
+#### Authentication
   * All requests to the AI Marketplace API must include an `api-key` header with your API key. If you are using the Client SDKs, you will set the API when constructing a client, and then the SDK will send the header on your behalf with every request. If integrating directly with the API, you’ll need to send this header yourself.
   * Usage from these API requests counts as usage for the specified API Key and AI model.
 
