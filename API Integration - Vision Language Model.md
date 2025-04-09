@@ -113,7 +113,7 @@ def run_single_image_from_file(img_path: str):
         stream=True                                             # Enable streaming to receive response chunks
     )
 
-# Process streaming response
+    # Process streaming response
     for chunk in chat_completion:
         if chunk is not None:
             print(chunk.choices[0].delta.content, end='', flush=True)
@@ -153,7 +153,7 @@ def run_single_image_from_url(url: str):
         stream=True                                               # Enable streaming to receive response chunks
     )
 
- # Process streaming response
+    # Process streaming response
     for chunk in chat_completion:
         if chunk is not None:
             print(chunk.choices[0].delta.content, end='', flush=True)
