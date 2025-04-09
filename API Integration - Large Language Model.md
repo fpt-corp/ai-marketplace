@@ -58,7 +58,7 @@ url = "https://mkp-api.fptcloud.com/chat/completions"
 token = ""
 headers = {
     "Content-Type": "application/json",
-    "Authorization": f"Bearer {token}"
+    "Authorization": f"Bearer {api-key}"
 }
 
 data = {
