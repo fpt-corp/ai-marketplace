@@ -14,7 +14,7 @@ The AI Marketplace API uses API keys for authentication. Create, manage, and lea
 ## Large Language Model
 [API Reference  for Large Language Model (LLM)](https://github.com/fpt-corp/ai-marketplace/blob/693f71389439e40e7a94ec5d21c02e17050a00f8/API%20Integration%20-%20Large%20Language%20Model.md)
 ## Vision Language Model
-[API Reference for Vision Language Model (VLM)]([https://github.com/fpt-corp/ai-marketplace/tree/main](https://github.com/fpt-corp/ai-marketplace/blob/main/API%20Integration%20-%20Vision%20Language%20Model.md)) 
+[API Reference for Vision Language Model (VLM)](https://github.com/fpt-corp/ai-marketplace/blob/main/API%20Integration%20-%20Vision%20Language%20Model.md) 
 ## Multimodal Model
 [API Reference for Multimodal Model]() 
 ## Embedding Model
