@@ -18,6 +18,6 @@ The AI Marketplace API uses API keys for authentication. Create, manage, and lea
 ## Multimodal Model
 API Reference for Multimodal Model
 - [Image](https://github.com/fpt-corp/ai-marketplace/blob/2d4e11c087a4e463167ddd3e13f12c97f25c7f1f/API%20Integration%20-%20Multimodal%20Model%20-%20Image.md)
-- [Text](https://github.com/fpt-corp/ai-marketplace/tree/3dc8c87bfca238d6021626d2ea676e0afcc65d82)
+- [Text](https://github.com/fpt-corp/ai-marketplace/blob/9cd3192d0bee91c736fd985381ef99255e92d63c/API%20Integration%20-%20Multimodal%20Model%20-%20Text.md)
 ## Embedding Model
 [API Reference for Embedding Model]() 
