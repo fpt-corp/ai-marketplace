@@ -12,15 +12,16 @@ The AI Marketplace API uses API keys for authentication. Create, manage, and lea
   * Usage from these API requests counts as usage for the specified API Key and AI model.
 
 ## Large Language Model
-[API Reference  for Large Language Model (LLM)](https://github.com/fpt-corp/ai-marketplace/blob/693f71389439e40e7a94ec5d21c02e17050a00f8/API%20Integration%20-%20Large%20Language%20Model.md)
+[API Reference  for Large Language Model (LLM)](https://github.com/fpt-corp/ai-marketplace/blob/main/API%20Integration%20-%20Large%20Language%20Model.md)
 ## Vision Language Model
 [API Reference for Vision Language Model (VLM)](https://github.com/fpt-corp/ai-marketplace/blob/main/API%20Integration%20-%20Vision%20Language%20Model.md) 
 ## Multimodal Model
 API Reference for Multimodal Model
-- [Image](https://github.com/fpt-corp/ai-marketplace/blob/2d4e11c087a4e463167ddd3e13f12c97f25c7f1f/API%20Integration%20-%20Multimodal%20Model%20-%20Image.md)
-- [Text](https://github.com/fpt-corp/ai-marketplace/blob/9cd3192d0bee91c736fd985381ef99255e92d63c/API%20Integration%20-%20Multimodal%20Model%20-%20Text.md)
+  - [Image](https://github.com/fpt-corp/ai-marketplace/blob/main/API%20Integration%20-%20Multimodal%20Model%20-%20Image.md)
+  - [Text](https://github.com/fpt-corp/ai-marketplace/blob/main/API%20Integration%20-%20Multimodal%20Model%20-%20Text.md)
 ## Embedding Model
 [API Reference for Embedding Model]() 
+
 
 ## List of Available Models
 
@@ -31,8 +32,15 @@ API Reference for Multimodal Model
 - DeepSeek-R1-Distill-Qwen-32B  
 - Llama-3.1-8B-Instruct  
 - Llama-3.3-70B-Instruct  
-- Llama-3-Swallow-70B-v0.1
-- Llama-Guard-3-8B  
-- Qwen2.5-7B-chat  
-- Qwen2.5-Coder-32B-Instruct  
+- Llama-3.3-Swallow-70B-Instruct-v0.4
+- Llama-Guard-3-8B
+- QwQ-32B
+- Qwen2.5-7B-instruct  
+- Qwen2.5-Coder-32B-Instruct
+- SaoLa3.1-medium
 - SaoLa-Llama3.1-planner
+- Vietnamese_Embedding
+- FPT.AI-e5-large
+- FPT.AI-gte-base
+- Qwen2.5-VL-7B-Instruct
+- Llama-4-Scout-17B-16E
