@@ -1,4 +1,4 @@
-#> API Reference for Multimodal Model - Image
+> API Reference for Multimodal Model - Image
 # Python
 ```python
 #!/usr/bin/env python3
