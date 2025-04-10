@@ -21,3 +21,18 @@ API Reference for Multimodal Model
 - [Text](https://github.com/fpt-corp/ai-marketplace/blob/9cd3192d0bee91c736fd985381ef99255e92d63c/API%20Integration%20-%20Multimodal%20Model%20-%20Text.md)
 ## Embedding Model
 [API Reference for Embedding Model]() 
+
+## List of Available Models
+
+- DeepSeek-R1
+- DeepSeek-R1-Distill-Llama-70B  
+- DeepSeek-R1-Distill-Llama-8B  
+- DeepSeek-R1-Distill-Qwen-1.5B  
+- DeepSeek-R1-Distill-Qwen-32B  
+- Llama-3.1-8B-Instruct  
+- Llama-3.3-70B-Instruct  
+- Llama-3-Swallow-70B-v0.1
+- Llama-Guard-3-8B  
+- Qwen2.5-7B-chat  
+- Qwen2.5-Coder-32B-Instruct  
+- SaoLa-Llama3.1-planner
