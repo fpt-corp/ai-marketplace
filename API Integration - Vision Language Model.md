@@ -103,7 +103,9 @@ def run_single_image_from_file(img_path: str):
                     },
                     {
                         "type": "image_url",
-                        "image_url": f"data:image/{format};base64,{encoded_img}"
+                        "image_url": {
+                            "url": f"data:image/{format};base64,{encoded_img}"
+                        }
                     }
                 ],
             },
