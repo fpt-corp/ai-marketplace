@@ -1,6 +1,62 @@
 > API Reference for Embedding Model
-# Using Langchain
+
+# Python
+```python
+#!/usr/bin/env python3
+import requests
+import json
+import os
+
+API_KEY = ""
+BASE_URL = "https://mkp-api.fptcloud.com"
+MODEL = "{model-name}" # Your specific embedding model name
+
+# Your long input text (same potential length issue applies!)
+TEXT = "Xin chào, tôi là một mô hình ngôn ngữ lớn. Tôi có thể giúp gì cho bạn hôm nay " * 390 # ~ 8192 tokens
+
+def get_embedding_requests(text: str, model: str, api_key: str, base_url: str) -> list[float] | None:
+    # Construct the full API endpoint URL (assuming standard OpenAI path)
+    endpoint_url = f"{base_url.rstrip('/')}/embeddings"
+
+    # Prepare the request headers
+    headers = {
+        "Authorization": f"Bearer {api_key}", # Standard Bearer token authentication
+        "Content-Type": "application/json",   # Specify JSON payload
+    }
+
+    # Prepare the request payload (body) in JSON format
+    payload = {
+        "input": [text],
+        "model": model
+    }
+
+    print(f"Sending POST request to: {endpoint_url}")
+    print(f"Using model: {model}")
+    try:
+        # Make the POST request
+        response = requests.post(endpoint_url, headers=headers, json=payload) # Use json=payload for auto-serialization
+        response.raise_for_status()
+
+        response_data = response.json()
+        # formated response and print it
+        print(json.dumps(response_data, indent=2))
+
+    except Exception as e:
+        # Catch any other unexpected errors
+        print(f"An unexpected error occurred: {e}")
+        return None
+
+# --- Get the embedding using raw requests ---
+embedding_vector = get_embedding_requests(TEXT, MODEL, API_KEY, BASE_URL)
+if embedding_vector:
+    print(f"\nEmbedding vector received (first 10 dimensions): {embedding_vector[:10]}...")
+    print(f"Embedding vector dimension: {len(embedding_vector)}")
+else:
+    print("\nFailed to retrieve the embedding vector using raw requests.")
 ```
+
+> # Using Langchain
+```python
 #!/usr/bin/env python3
 
 # Import required libraries
@@ -67,4 +123,40 @@ if embedding_vector:
     print(f"Embedding vector dimension: {len(embedding_vector)}")
 else:
     print("Failed to retrieve the embedding vector.")
+```
+# OpenAI
+```python
+#!/bin/python3
+from openai import OpenAI
+from transformers import AutoTokenizer
+
+API_KEY = ""
+BASE_URL = "https://mkp-api.fptcloud.com"
+MODEL="{model-name}"
+
+TEXT="Xin chào, tôi là một mô hình ngôn ngữ lớn. Tôi có thể giúp gì cho bạn hôm nay " * 390 # ~ 8192 tokens
+
+client = OpenAI(
+    api_key=API_KEY,
+    base_url=BASE_URL
+)
+
+def get_embedding(text: str, model: str) -> list:
+    """
+    Retrieves the embedding for a given text using the specified model.
+    Args:
+        text (str): The input text to embed.
+        model (str): The model to use for embedding.
+    Returns:
+        list: The embedding vector.
+    """
+    response = client.embeddings.create(
+        input=text,
+        model=model
+    )
+
+    return response.data[0].embedding
+
+# get the embedding for TEXT
+embedding_vector = get_embedding(TEXT, MODEL)
 ```
