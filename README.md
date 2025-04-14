@@ -20,7 +20,7 @@ API Reference for Multimodal Model
   - [Image](https://github.com/fpt-corp/ai-marketplace/blob/main/API%20Integration%20-%20Multimodal%20Model%20-%20Image.md)
   - [Text](https://github.com/fpt-corp/ai-marketplace/blob/main/API%20Integration%20-%20Multimodal%20Model%20-%20Text.md)
 ## Embedding Model
-[API Reference for Embedding Model]() 
+[API Reference for Embedding Model](https://github.com/fpt-corp/ai-marketplace/blob/main/API%20Integration%20-%20Embedding%20Model.md) 
 
 
 ## List of Available Models
