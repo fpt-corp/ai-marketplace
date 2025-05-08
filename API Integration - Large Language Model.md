@@ -203,7 +203,7 @@ vietnamese_prompt = "Bạn có thể giúp tôi mô tả về hệ mặt trời 
 print("\nTesting Streaming Function:")
 chat_stream_langchain(vietnamese_prompt)
 ```
-#OpenAI
+# OpenAI
 ```python
 #!/usr/bin/env python3
 import base64
