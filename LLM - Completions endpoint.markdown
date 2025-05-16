@@ -1,3 +1,4 @@
+> Creates a completion for the provided prompt and parameters.
 # cURL
 ```shell
 curl https://mkp-api.fptcloud.com/completions \
