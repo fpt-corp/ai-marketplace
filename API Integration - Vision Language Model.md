@@ -98,14 +98,14 @@ def run_single_image_from_file(img_path: str):
                 "role": "user",
                 "content": [
                     {
-                        "type": "text",
-                        "text": "Bạn có thể mô tả hình ảnh này không?",
-                    },
-                    {
                         "type": "image_url",
                         "image_url": {
                             "url": f"data:image/{format};base64,{encoded_img}"
                         }
+                    },
+                    {
+                        "type": "text",
+                        "text": "Bạn có thể mô tả hình ảnh này không?",
                     }
                 ],
             },
@@ -138,14 +138,14 @@ def run_single_image_from_url(url: str):
                 "role": "user",
                 "content": [
                     {
-                        "type": "text",
-                        "text": "Mô tả bức ảnh ?",
-                    },
-                    {
                         "type": "image_url",
                         "image_url": {
                             "url": f"{url}"
                         }
+                    },
+                    {
+                        "type": "text",
+                        "text": "Mô tả bức ảnh ?",
                     }
                 ],
             },
