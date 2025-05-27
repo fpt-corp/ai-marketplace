@@ -103,23 +103,31 @@ for line in response.iter_lines():
 ```
 # cURL
 ```shell
-curl --location "https://mkp-api.fptcloud.com/chat/completions" \
---header "Content-Type: application/json" \
---header "Authorization: Bearer YOUR_API_KEY" \
+curl --location 'https://mkp-api.fptcloud.com/chat/completions' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer {api-key}' \
+--header 'Cookie: cf_use_ob=0' \
 --data '{
-    "model": "YOUR_MODEL_NAME",
+ 
+    "model": "{model-name}",
+ 
     "messages": [
-      {
-        "role": "system",
-        "content": "You are a helpful assistant capable of understanding a user\s needs through conversation to recommend suitable services. Based on the conversation history and the user'\''s last message, list services that can address the user'\''s needs. Respond only in Vietnamese or English, matching the language of the user'\''s input."
-      },
-      {
-        "role": "user",
-        "content": "Hi."
-      }
+ 
+        {
+      "role": "system",
+      "content": "You are a helpful assistant capable of understanding a user'\''s needs through conversation to recommend suitable services. Based on the conversation history and the user'\''s last message, list services that can address the user'\''s needs. Respond only in Vietnamese or English, matching the language of the user'\''s input."
+    },
+    {
+ 
+            "role": "user",
+ 
+            "content": "hi"
+ 
+        }
     ],
     "stream": false
-  }'
+ 
+}'   
  
 ```
 
