@@ -18,7 +18,7 @@ async def stream_response():
     try:
         # Initialize the completion request
         response = await acompletion(
-            model="openai/{model-name}",  # Prefix required openai/
+            model="{model-name}", 
             api_base="https://mkp-api.fptcloud.com",    # Base URL for API
             api_key="{api-key}",          # Your API key
             messages=[                    # List of message objects. Please update the System prompt to have the model respond appropriately
