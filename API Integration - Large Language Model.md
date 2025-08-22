@@ -269,12 +269,46 @@ def chat_non_stream(prompt: str):
         model=MODEL,
         temperature=0.0
     )
-
     print(chat_completion.choices[0].message.content)
-
 chat_non_stream("Bạn có thể giúp tôi mô tả về hệ mặt trời không?")
-```
+## Nodejs
+const OpenAI = require('openai');
+const API_KEY = "";
+const BASE_URL = "https://mkp-api.fptcloud.com";
+const MODEL = "SaoLa-Llama3.1-planner"; 
+const USER_PROMPT = "Xin chào" 
+const openai = new OpenAI({ apiKey: API_KEY, baseURL: BASE_URL});
+async function getLLMResponseWithOpenAI(prompt, model) {
+    try {
+        const response = await openai.chat.completions.create({
+            model: model,
+            messages: [{ role: "user", content: prompt }],
+        });
 
+        if (response.choices && response.choices.length > 0 && response.choices[0].message && response.choices[0].message.content) {
+            return response.choices[0].message.content;
+        } else {
+            console.error("Failed to retrieve response from OpenAI.");
+            return null;
+        }
+    } catch (error) {
+        console.error("Error retrieving response from OpenAI:", error);
+        return null;
+    }
+}
+async function main() {
+    const llmResponse = await getLLMResponseWithOpenAI(USER_PROMPT, MODEL);
+
+    if (llmResponse) {
+        console.log("\nLLM Response received:");
+        console.log(llmResponse);
+    } else {
+        console.log("\nFailed to retrieve a response from the LLM using the OpenAI library.");
+    }
+}
+main();
+
+```
 ### Key Parameters Explained
 - `model`: String identifier for the model you want to use
 - `api_base`: The base URL endpoint for your API
