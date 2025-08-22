@@ -160,3 +160,44 @@ def get_embedding(text: str, model: str) -> list:
 # get the embedding for TEXT
 embedding_vector = get_embedding(TEXT, MODEL)
 ```
+```Nodejs
+const OpenAI = require('openai');
+
+const API_KEY = "";
+const BASE_URL = "https://mkp-api.fptcloud.com";
+const MODEL = "Vietnamese_Embedding"; 
+const TEXT = "Xin chào, tôi là một mô hình ngôn ngữ lớn. Tôi có thể giúp gì cho bạn hôm nay " 
+
+const openai = new OpenAI({ apiKey: API_KEY, baseURL: BASE_URL});
+
+async function getEmbeddingWithOpenAI(text, model) {
+    try {
+        const response = await openai.embeddings.create({
+            model: model,
+            input: text, // OpenAI typically accepts an array of strings as input
+        });
+
+        if (response.data && response.data.length > 0) {
+            return response.data[0].embedding;
+        } else {
+            console.error("Failed to retrieve embedding from OpenAI response.");
+            return null;
+        }
+    } catch (error) {
+        console.error("Error retrieving embedding from OpenAI:", error);
+        return null;
+    }
+}
+
+async function main() {
+    const embeddingVector = await getEmbeddingWithOpenAI(TEXT, MODEL);
+
+    if (embeddingVector) {
+        console.log("\nEmbedding vector received (first 10 dimensions):", embeddingVector.slice(0, 10), "...");
+        console.log("Embedding vector dimension:", embeddingVector.length);
+    } else {
+        console.log("\nFailed to retrieve the embedding vector using the OpenAI library.");
+    }
+}
+
+main();
