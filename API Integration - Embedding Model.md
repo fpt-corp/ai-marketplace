@@ -160,7 +160,8 @@ def get_embedding(text: str, model: str) -> list:
 # get the embedding for TEXT
 embedding_vector = get_embedding(TEXT, MODEL)
 ```
-```Nodejs
+# Nodejs
+```python
 const OpenAI = require('openai');
 
 const API_KEY = "";
