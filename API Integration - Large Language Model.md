@@ -271,7 +271,9 @@ def chat_non_stream(prompt: str):
     )
     print(chat_completion.choices[0].message.content)
 chat_non_stream("Bạn có thể giúp tôi mô tả về hệ mặt trời không?")
-## Nodejs
+```
+# Nodejs
+```python
 const OpenAI = require('openai');
 const API_KEY = "";
 const BASE_URL = "https://mkp-api.fptcloud.com";
