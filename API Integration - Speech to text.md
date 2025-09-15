@@ -42,7 +42,7 @@ curl --request POST \
 ```bash
 !/bin/bash
 
-Install sox if not already installed
+#Install sox if not already installed
 
 if ! command -v sox &> /dev/null; then
 
@@ -54,7 +54,7 @@ if ! command -v sox &> /dev/null; then
     
 fi
 
-Check if the input file is provided
+#Check if the input file is provided
 
 if [ -z "$1" ]; then
 
@@ -64,7 +64,7 @@ if [ -z "$1" ]; then
     
 fi
 
-Convert the audio file to WAV format
+#Convert the audio file to WAV format
 
 1 channel, 16kHz, 16-bit PCM
 
