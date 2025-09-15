@@ -1,37 +1,28 @@
 # Supervised Fine-Tuning for Text (SFT)
+> This guide focuses on using supervised fine-tuning (SFT) to fine-tune and deploy a model with on-demand and serverless hosting. 
 
-This guide focuses on using **supervised fine-tuning** (SFT) to fine-tune and deploy a model with **on-demand** and **serverless hosting**.
+## 1. List of Supported Models
 
----
-
-## 📌 List of Supported Models
-
-We currently support fine-tuning models with the following architectures:
-
+ We currently support fine-tuning models with the following architectures: 
 | Model (Resource)                              | Suggested Learning Rate (small → med) | Suggested Epochs |
 |-----------------------------------------------|---------------------------------------------|------------------------------|
 | **Qwen-3 / Qwen3-4B-Instruct** (template 1 GPU) | small: `1e-5 → 5e-5`<br>med: `5e-5 → 1e-4` | small: 1–3<br>med: 3–5   |
 | **google/gemma-3-27b-it** (template 2 GPUs)   | small: `1e-5 → 5e-5`<br>med: `5e-5 → 1e-4` | 3 (start)   |
 | **meta-llama/Llama-3.3-70B** (template 4 GPUs) | small: `1e-5 → 2e-5`<br>med: `2e-5 → 1e-4` | 3 (start)   |
 
----
 
-## 📂 Dataset Format
+## 2. Dataset Format
 
 | Dataset Type   | Link to Sample                                                                 | Note                                                                                      |
 |----------------|--------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
-| **Alpaca**     | [Alpaca Sample](https://github.com/fpt-corp/ai-studio-samples/tree/main/sample-datasets/alpaca) | Dễ chuẩn bị, phù hợp với các use case instruction tuning cơ bản (summarization, QA, rewriting). |
-| **ShareGPT**   | [ShareGPT Sample](https://github.com/fpt-corp/ai-studio-samples/tree/main/sample-datasets/sharegpt) | Phù hợp khi người dùng muốn fine-tune chatbot có khả năng hội thoại nhiều vòng.            |
-| **ShareGPT_Image** | [ShareGPT_Image Sample](https://github.com/fpt-corp/ai-studio-samples/tree/main/sample-datasets/sharegpt-image) | Dành cho nhóm user nâng cao, làm về AI đa phương tiện.                                   |
+| **Alpaca**     | [Alpaca Sample](https://github.com/fpt-corp/ai-studio-samples/tree/main/sample-datasets/alpaca) | Easy to prepare, suitable for basic instruction tuning use cases (summarization, QA, rewriting). |
+| **ShareGPT**   | [ShareGPT Sample](https://github.com/fpt-corp/ai-studio-samples/tree/main/sample-datasets/sharegpt) | Suitable when users want to fine-tune a chatbot with multi-turn conversation capability.            |
+| **ShareGPT_Image** | [ShareGPT_Image Sample](https://github.com/fpt-corp/ai-studio-samples/tree/main/sample-datasets/sharegpt-image) | Designed for advanced users working on multimedia AI.                                   |
 
----
-
-## 💡 What is Training Data?
-
-In the fine-tuning process, **data** refers to a curated set of example inputs and outputs used to retrain a pre-trained AI model.  
+> In the fine-tuning process, **data** refers to a curated set of example inputs and outputs used to retrain a pre-trained AI model.  
 This data teaches the model to adapt its behavior to suit your **specific domain, task, or tone of voice**.
 
-## **1. Alpaca**
+### **2.1. Alpaca**
 
 **Alpaca** uses a very simple structure to fine-tune the model with Instruction-following format with input, output pairs for **supervised fine-tuning** tasks. The basic structure includes:
 
@@ -67,7 +58,7 @@ This data teaches the model to adapt its behavior to suit your **specific domain
 ```
 **Samples**: https://github.com/fpt-corp/ai-studio-samples/tree/main/sample-datasets/alpaca
 
-## **2. ShareGPT**
+### **2.2. ShareGPT**
 
 **a. Trainer = SFT**
 
@@ -126,7 +117,7 @@ Each data sample consists of a `conversations` array, where each turn in the cha
 
 **Samples:** https://github.com/fpt-corp/ai-studio-samples/tree/main/sample-datasets/sharegpt
 
-## **4. ShareGPT_Image**
+### **2.3. ShareGPT_Image**
 
 **ShareGPT_Image** is an extension of the ShareGPT multi-turn chat format, designed specifically for multi-modal training — that is, training models that handle both text and images in conversations.
 
@@ -216,62 +207,47 @@ The structure includes:
 
 **Samples**: [https://github.com/fpt-corp/ai-studio-samples/tree/main/sample-datasets/sharegpt-image](https://github.com/fpt-corp/ai-studio-samples/tree/main/sample-datasets/sharegpt-image)
 
-## 2. Training and Validation Data
-
-- **Training data (required):** the main dataset used for model training.  
-- **Validation data (recommended):** used to evaluate model quality during training.  
-
-### 2.1. Data Split Rules
-- **Train/Validation split:** 80% / 20%.  
-- **Small dataset (<2,000 samples):** you may use the entire dataset for training, but quality will be harder to verify.  
-- **Large dataset (>10,000 samples):** always prepare a separate validation set.  
-
----
+## 3. Training and Validation Data
+- Training data (required): the main dataset used for model training.  
+- Validation data (recommended): used to evaluate model quality during training.  ### 3.1. Data Split Rules
+- Train/Validation split:** 80% / 20%.  
+- Small dataset (<2,000 samples): you may use the entire dataset for training, but quality will be harder to verify.  
+- Large dataset (>10,000 samples): always prepare a separate validation set.  
 
 
-## 3. Dataset Validation Rules
-
-In addition to checking file format (CSV, JSON, JSONL, Parquet, ZIP), the system should also validate the dataset content before fine-tuning.  
-
-
-### 3.1. Basic Validation (Format-level)
-- File size must not exceed **100MB**.  
-- Must be in a supported format.  
-- Training set must contain at least **1,000 samples**.  
-
-
-### 3.2. Content Validation (Content-level)
-**Structure:**  
-- Each record must contain **2 fields: `prompt` and `completion`**.  
-- Records with missing or empty fields are not accepted.  
-
-**Text Quality:**  
-- Both prompt and completion must be text (not empty objects, numbers, or binary).  
-- Must not contain invalid characters or tokens.  
-
-**Sample Length:**  
-- Each sample ≤ **2048 tokens** (standard).  
-- Some models support up to **16k tokens**, but require correct configuration.  
-- If exceeded → the system will raise an error.  
-
-**Duplication:**  
-- The system automatically warns if duplicate samples > **10%**.  
-- Users are encouraged to clean duplicates before upload.  
-
+## 4. Dataset Validation Rules
+> In addition to checking file format (CSV, JSON, JSONL, Parquet, ZIP), the system should also validate the dataset content before fine-tuning.  
+ ### 4.1. Basic Validation (Format-level)
+ - File size must not exceed **100MB**.  
+ - Must be in a supported format.  
+ - Training set must contain at least **1,000 samples**.  
+### 4.2. Content Validation (Content-level)
+ **Structure:**  
+ - Each record must contain **2 fields: `prompt` and `completion`**.  
+ - Records with missing or empty fields are not accepted.
+   
+ **Text Quality:**  
+ - Both prompt and completion must be text (not empty objects, numbers, or binary).  
+ - Must not contain invalid characters or tokens.
+   
+ **Sample Length:**  
+ - Each sample ≤ **2048 tokens** (standard).  
+ - Some models support up to **16k tokens**, but require correct configuration.  
+ - If exceeded → the system will raise an error.
+   
+ **Duplication:**  
+ - The system automatically warns if duplicate samples > **10%**.  
+ - Users are encouraged to clean duplicates before upload.
+   
 **Balance:**  
-- Prompts and completions should be well-distributed, not biased toward a single type of question.  
-
-
-### 3.3. Advanced Validation (Recommended)
+ - Prompts and completions should be well-distributed, not biased toward a single type of question.  
+### 4.3. Advanced Validation (Recommended)
 - Check for dataset bias (no harmful or sensitive content).  
 - Ensure **UTF-8 encoding** to avoid parsing errors.  
 
----
-
-
-## 4. Common Issues & How to Avoid Them
-- **Context drift:** Always keep prompt formatting consistent.  
-- **Overly long or redundant completions:** Keep only the necessary output.  
-- **Noisy data (typos, duplicates):** Clean before uploading.  
-- **Oversized files (>100MB):** Split or compress into ZIP.  
-- **Exceeding max length (2048 or 16k tokens):** Normalize data before upload.  
+## 5. Common Issues & How to Avoid Them
+- Context drift: Always keep prompt formatting consistent.  
+- Overly long or redundant completions: Keep only the necessary output.  
+- Noisy data (typos, duplicates): Clean before uploading.  
+- Oversized files (>100MB): Split or compress into ZIP.  
+- Exceeding max length (2048 or 16k tokens): Normalize data before upload.  
