@@ -60,7 +60,7 @@ This data teaches the model to adapt its behavior to suit your **specific domain
 
 ### **2.2. ShareGPT**
 
-**a. Trainer = SFT**
+**Trainer = SFT**
 
 **ShareGPT** is designed to represent multi-turn conversations (back-and-forth chats) between a user and an AI assistant. It is commonly used when training or fine-tuning models for dialogue systems or chatbots that need to handle contextual conversation over multiple turns.
 
