@@ -1,3 +1,6 @@
+> API Reference for Speech to text
+# Bash script to process audio files
+```
 !/bin/bash
 
 Install sox if not already installed
@@ -31,3 +34,4 @@ INPUT_FILE="$1"
 OUTPUT_FILE="${INPUT_FILE%.*}_norm.wav"
 
 sox "$INPUT_FILE" -c 1 -r 16000 -b 16 "$OUTPUT_FILE"
+```
