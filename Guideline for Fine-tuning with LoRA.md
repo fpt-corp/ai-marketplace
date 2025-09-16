@@ -1,5 +1,4 @@
-# Supervised Fine-Tuning for Text (SFT)
-> This guide focuses on using supervised fine-tuning (SFT) to fine-tune and deploy a model with on-demand and serverless hosting. 
+> This guide focuses on fine-tuning with LoRA and deploying a model with on-demand and serverless hosting. 
 
 ## 1. Recommended configuration 
 
