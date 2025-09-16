@@ -1,16 +1,20 @@
 # Supervised Fine-Tuning for Text (SFT)
 > This guide focuses on using supervised fine-tuning (SFT) to fine-tune and deploy a model with on-demand and serverless hosting. 
 
-## 1. List of Supported Models
+## 1. Recommended configuration 
 
  We currently support fine-tuning models with the following architectures: 
-| Model (Resource)                              | Suggested Learning Rate (small → med) | Suggested Epochs |
-|-----------------------------------------------|---------------------------------------------|------------------------------|
-| **Qwen-3 / Qwen3-4B-Instruct** (template 1 GPU) | small: `1e-5 → 5e-5`<br>med: `5e-5 → 1e-4` | small: 1–3<br>med: 3–5   |
-| **google/gemma-3-27b-it** (template 2 GPUs)   | small: `1e-5 → 5e-5`<br>med: `5e-5 → 1e-4` | 3 (start)   |
-| **meta-llama/Llama-3.3-70B** (template 4 GPUs) | small: `1e-5 → 2e-5`<br>med: `2e-5 → 1e-4` | 3 (start)   |
+| Model (Resource)                              | Learning Rate | Suggested Epochs |
+|-----------------------------------------------|-------------------------------------------------------------|-----------------------------------------------------------|
+| **Qwen-3 / Qwen3-4B-Instruct** (template 1 GPU) | Small dataset: `1e-5 → 5e-5`<br>medium/large dataset: `5e-5 → 1e-4` | Small dataset: 1–3<br>medium: 3–5     |
+| **google/gemma-3-27b-it** (template 2 GPUs)   | Small dataset: `1e-5 → 5e-5`<br>medium/large dataset: `5e-5 → 1e-4` | 3 (start)   |
+| **meta-llama/Llama-3.3-70B** (template 4 GPUs) | Small dataset: `1e-5 → 2e-5`<br>medium/large dataset: `2e-5 → 1e-4` | 3 (start)   |
 
-
+> Small dataset: Under 1000 samples
+> 
+> Medium: 1K-10K samples
+>
+> Large: Over 10K samples
 ## 2. Dataset Format
 
 | Dataset Type   | Link to Sample                                                                 | Note                                                                                      |
@@ -209,18 +213,26 @@ The structure includes:
 
 ## 3. Training and Validation Data
 - Training data (required): the main dataset used for model training.  
-- Validation data (recommended): used to evaluate model quality during training.  ### 3.1. Data Split Rules
+- Validation data (recommended): used to evaluate model quality during training.
+### 3.1. Data Split Rules
 - Train/Validation split:** 80% / 20%.  
-- Small dataset (<2,000 samples): you may use the entire dataset for training, but quality will be harder to verify.  
+- Small dataset (<1,000 samples): you may use the entire dataset for training, but quality will be harder to verify.  
 - Large dataset (>10,000 samples): always prepare a separate validation set.  
 
 
 ## 4. Dataset Validation Rules
-> In addition to checking file format (CSV, JSON, JSONL, Parquet, ZIP), the system should also validate the dataset content before fine-tuning.  
+> In addition to checking file format (CSV, JSON, JSONL, Parquet, ZIP), the system should also validate the dataset content before fine-tuning.
+>
+| Trainer | Supported data format | Supported file format | Supported file size |
+|---------|-----------------------|-----------------------|---------------------|
+| SFT     | Alpaca                | - CSV <br> - JSON <br> - JSONLINES <br> - ZIP <br> - PARQUET | Limit 100MB |
+| SFT     | ShareGPT              | - JSON <br> - JSONLINES <br> - ZIP <br> - PARQUET | Limit 100MB |
+| SFT     | ShareGPT_Image        | - ZIP <br> - PARQUET | Limit 100MB |
+
  ### 4.1. Basic Validation (Format-level)
  - File size must not exceed **100MB**.  
  - Must be in a supported format.  
- - Training set must contain at least **1,000 samples**.  
+ - Training set must contain at least **1,00 samples**.  
 ### 4.2. Content Validation (Content-level)
  **Structure:**  
  - Each record must contain **2 fields: `prompt` and `completion`**.  
