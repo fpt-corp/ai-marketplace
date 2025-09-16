@@ -1,5 +1,5 @@
-# Preprocess audio files
 > Bash script preprocessing utility for audio files
+# Preprocess audio files
 
 ```bash
 #!/bin/bash
