@@ -9,11 +9,10 @@
 | **google/gemma-3-27b-it** (template 2 GPUs)   | Small dataset: `1e-5 → 5e-5`<br>medium/large dataset: `5e-5 → 1e-4` | 3 (start)   |
 | **meta-llama/Llama-3.3-70B** (template 4 GPUs) | Small dataset: `1e-5 → 2e-5`<br>medium/large dataset: `2e-5 → 1e-4` | 3 (start)   |
 
-> Small dataset: Under 1000 samples
-> 
-> Medium: 1K-10K samples
->
-> Large: Over 10K samples
+- Small dataset: Under 1000 samples
+- Medium: 1K-10K samples
+- Large: Over 10K samples
+
 ## 2. Dataset Format
 
 | Dataset Type   | Link to Sample                                                                 | Note                                                                                      |
@@ -22,7 +21,7 @@
 | **ShareGPT**   | [ShareGPT Sample](https://github.com/fpt-corp/ai-studio-samples/tree/main/sample-datasets/sharegpt) | Suitable when users want to fine-tune a chatbot with multi-turn conversation capability.            |
 | **ShareGPT_Image** | [ShareGPT_Image Sample](https://github.com/fpt-corp/ai-studio-samples/tree/main/sample-datasets/sharegpt-image) | Designed for advanced users working on multimedia AI.                                   |
 
-> In the fine-tuning process, **data** refers to a curated set of example inputs and outputs used to retrain a pre-trained AI model.  
+In the fine-tuning process, **data** refers to a curated set of example inputs and outputs used to retrain a pre-trained AI model.  
 This data teaches the model to adapt its behavior to suit your **specific domain, task, or tone of voice**.
 
 ### **2.1. Alpaca**
@@ -213,14 +212,15 @@ The structure includes:
 ## 3. Training and Validation Data
 - Training data (required): the main dataset used for model training.  
 - Validation data (recommended): used to evaluate model quality during training.
-### 3.1. Data Split Rules
+
+**Data Split Recommendation**
 - Train/Validation split:** 80% / 20%.  
 - Small dataset (<1,000 samples): you may use the entire dataset for training, but quality will be harder to verify.  
 - Large dataset (>10,000 samples): always prepare a separate validation set.  
 
 
-## 4. Dataset Validation Rules
-> In addition to checking file format (CSV, JSON, JSONL, Parquet, ZIP), the system should also validate the dataset content before fine-tuning.
+## 4. How to Prepare Your Dataset?
+In addition to checking file format (CSV, JSON, JSONL, Parquet, ZIP), the system should also validate the dataset content before fine-tuning.
 >
 | Trainer | Supported data format | Supported file format | Supported file size |
 |---------|-----------------------|-----------------------|---------------------|
@@ -231,7 +231,7 @@ The structure includes:
  ### 4.1. Basic Validation (Format-level)
  - File size must not exceed **100MB**.  
  - Must be in a supported format.  
- - Training set must contain at least **1,00 samples**.  
+ - Training set must contain at least **100 samples**.  
 ### 4.2. Content Validation (Content-level)
  **Structure:**  
  - Each record must contain **2 fields: `prompt` and `completion`**.  
