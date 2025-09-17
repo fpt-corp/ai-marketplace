@@ -1,6 +1,9 @@
 # API Reference
 This API reference describes the RESTful, streaming, and real-time APIs of AI Models on [AI Marketplace](https://marketplace.fptcloud.com/). REST APIs are usable via HTTP in any environment that supports HTTP requests. 
 
+* Kramdown TOC here
+{:toc}
+
 ## Authentication 
 The AI Marketplace API uses API keys for authentication. Create, manage, and learn more about API keys in [My account/ My API Keys](https://marketplace.fptcloud.com/en/my-account#my-api-key).
 

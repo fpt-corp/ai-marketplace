@@ -1,5 +1,10 @@
-> API Reference for Vision Language Model (VLM)
-# Python
+# API Reference for Vision Language Model (VLM)
+
+* Kramdown TOC here
+{:toc}
+
+## Python
+
 ```python
 #!/usr/bin/env python3
 

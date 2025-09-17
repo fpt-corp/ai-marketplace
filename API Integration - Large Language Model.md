@@ -1,12 +1,18 @@
-> API Reference for Large Language Model (LLM)
-# Using LiteLLM
+# API Reference for Large Language Model (LLM)
 
-## Installation
+* Kramdown TOC here
+{:toc}
+
+## Using LiteLLM
+
+### Installation
+
 ```bash
 pip install litellm
 ```
-## Basic Usage with Streaming
-### Async Streaming Completion
+
+### Basic Usage with Streaming
+#### Async Streaming Completion
 The AI Marketplace API uses API keys for authentication. Please contact our team to acquire your API Key. 
 
 ```python
@@ -48,7 +54,9 @@ async def main():
 if __name__ == '__main__':
     asyncio.run(main())
 ```
-# Python
+
+## Python
+
 ```python
 import requests
 import json
@@ -101,7 +109,9 @@ for line in response.iter_lines():
             # Handle non-JSON lines
             print(f"Cannot parse: {line_text}")
 ```
-# cURL
+
+## cURL
+
 ```shell
 curl --location 'https://mkp-api.fptcloud.com/chat/completions' \
 --header 'Content-Type: application/json' \
@@ -131,7 +141,8 @@ curl --location 'https://mkp-api.fptcloud.com/chat/completions' \
  
 ```
 
-# Langchain
+## Langchain
+
 ```python
 #!/usr/bin/env python3
 import os
@@ -211,7 +222,9 @@ vietnamese_prompt = "Bạn có thể giúp tôi mô tả về hệ mặt trời 
 print("\nTesting Streaming Function:")
 chat_stream_langchain(vietnamese_prompt)
 ```
-# OpenAI
+
+## OpenAI
+
 ```python
 #!/usr/bin/env python3
 import base64
@@ -272,7 +285,9 @@ def chat_non_stream(prompt: str):
     print(chat_completion.choices[0].message.content)
 chat_non_stream("Bạn có thể giúp tôi mô tả về hệ mặt trời không?")
 ```
-# Nodejs
+
+## Nodejs
+
 ```python
 const OpenAI = require('openai');
 const API_KEY = "";
@@ -309,9 +324,9 @@ async function main() {
     }
 }
 main();
-
 ```
-### Key Parameters Explained
+
+## Key Parameters Explained
 - `model`: String identifier for the model you want to use
 - `api_base`: The base URL endpoint for your API
 - `api_key`: Your authentication API key
@@ -319,21 +334,29 @@ main();
   - `role`: Can be "system", "user", or "assistant"
   - `content`: The actual message content
 - `stream`: Boolean flag to enable streaming (set to `True` for streaming responses)
-### Response Format
+
+## Response Format
 The streaming response will yield chunks in the following format:
+
 ```json
 data: {"content": "chunk-of-response-text"}
 ```
+
 If an error occurs:
+
 ```json
 data: {"error": "error-message"}
 ```
+
 End of stream marker:
+
 ```
 data: [DONE]
 ```
-### Error Handling
+
+## Error Handling
 The code includes try-catch block to handle potential errors during the API call and streaming process. Any errors will be returned as JSON-encoded error messages in the stream.
+
 ## Notes
 - Make sure to handle the async nature of the function with appropriate async/await syntax
 - The streaming response is formatted as Server-Sent Events (SSE)
