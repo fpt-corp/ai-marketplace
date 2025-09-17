@@ -1,5 +1,6 @@
 # API Reference
 This API reference describes the RESTful, streaming, and real-time APIs of AI Models on [AI Marketplace](https://marketplace.fptcloud.com/). REST APIs are usable via HTTP in any environment that supports HTTP requests. 
+
 ## Authentication 
 The AI Marketplace API uses API keys for authentication. Create, manage, and learn more about API keys in [My account/ My API Keys](https://marketplace.fptcloud.com/en/my-account#my-api-key).
 
@@ -12,16 +13,18 @@ The AI Marketplace API uses API keys for authentication. Create, manage, and lea
   * Usage from these API requests counts as usage for the specified API Key and AI model.
 
 ## Large Language Model
-[API Reference  for Large Language Model (LLM)](https://github.com/fpt-corp/ai-marketplace/blob/main/API%20Integration%20-%20Large%20Language%20Model.md)
+[API Reference  for Large Language Model (LLM)](API Integration - Large Language Model.md)
+
 ## Vision Language Model
-[API Reference for Vision Language Model (VLM)](https://github.com/fpt-corp/ai-marketplace/blob/main/API%20Integration%20-%20Vision%20Language%20Model.md) 
+[API Reference for Vision Language Model (VLM)](API Integration - Vision Language Model.md) 
+
 ## Multimodal Model
 API Reference for Multimodal Model
-  - [Image](https://github.com/fpt-corp/ai-marketplace/blob/main/API%20Integration%20-%20Multimodal%20Model%20-%20Image.md)
-  - [Text](https://github.com/fpt-corp/ai-marketplace/blob/main/API%20Integration%20-%20Multimodal%20Model%20-%20Text.md)
-## Embedding Model
-[API Reference for Embedding Model](https://github.com/fpt-corp/ai-marketplace/blob/main/API%20Integration%20-%20Embedding%20Model.md) 
+  - [Image](API Integration - Multimodal Model - Image.md)
+  - [Text](API Integration - Multimodal Model - Text.md)
 
+## Embedding Model
+[API Reference for Embedding Model](API Integration - Embedding Model.md) 
 
 ## List of Available Models
 
