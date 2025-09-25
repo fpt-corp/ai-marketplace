@@ -18,7 +18,7 @@
 | Dataset Type   | Link to Sample                                                                 | Note                                                                                      |
 |----------------|--------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------|
 | **Alpaca**     | [Alpaca Sample](https://github.com/fpt-corp/ai-studio-samples/tree/main/sample-datasets/alpaca) | Easy to prepare, suitable for basic instruction tuning use cases (summarization, QA, rewriting). |
-| **ShareGPT**   | [ShareGPT Sample](https://github.com/fpt-corp/ai-studio-samples/tree/main/sample-datasets/sharegpt) | Suitable when users want to fine-tune a chatbot with multi-turn conversation capability.            |
+| **ShareGPT**   | [ShareGPT Sample](https://github.com/fpt-corp/ai-studio-samples/tree/main/sample-datasets/sharegpt/sharegpt_3k_samples) | Suitable when users want to fine-tune a chatbot with multi-turn conversation capability.            |
 | **ShareGPT_Image** | [ShareGPT_Image Sample](https://github.com/fpt-corp/ai-studio-samples/tree/main/sample-datasets/sharegpt-image) | Designed for advanced users working on multimedia AI.                                   |
 
 In the fine-tuning process, **data** refers to a curated set of example inputs and outputs used to retrain a pre-trained AI model.  
