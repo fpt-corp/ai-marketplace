@@ -1,4 +1,4 @@
-### Testcase 1
+### Function calling 1
 ```bash
 curl --location 'https://mkp-api.fptcloud.com/v1/responses' \
 --header 'Content-Type: application/json' \
@@ -15,7 +15,7 @@ curl --location 'https://mkp-api.fptcloud.com/v1/responses' \
 ```
 
 
-### Testcase 2
+### Function calling 2
 ```bash
 curl --location 'https://mkp-api.fptcloud.com/v1/responses' \
 --header 'Content-Type: application/json' \
