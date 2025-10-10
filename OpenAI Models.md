@@ -1,3 +1,14 @@
+### cURL 
+```bash
+curl --location 'https://mkp-api.fptcloud.com/v1/responses' \
+--header 'Content-Type: application/json' \
+--header 'Authorization: Bearer api-key5NA' \
+--data '{
+    "model": "gpt-oss-20b",
+    "input": "Tell me a three sentence bedtime story about a unicorn."
+  }'
+```
+
 ### Function calling 1
 ```bash
 curl --location 'https://mkp-api.fptcloud.com/v1/responses' \
