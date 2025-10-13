@@ -1,14 +1,10 @@
 # API Reference: `/v1/responses`
-
 ## 1. Overview
-
 The `/v1/responses` endpoint allows users to generate model outputs from language models (LLMs) such as `gpt-oss-20b`, `mixtral`, and others.  
 This API supports multiple interaction modes, including:
-
 - **Basic prompting:** Simple input-output interaction.
 - **Reasoning mode:** Enables multi-step logical reasoning.
 - **Function calling:** Allows the model to call user-defined tools or functions to fetch data or perform actions.
-  
 ## 2. Sample
 ### cURL 
 ```bash
@@ -37,8 +33,6 @@ curl --location 'https://mkp-api.fptcloud.com/v1/responses' \
     ]
 }'
 ```
-
-
 ### Function calling 2
 ```bash
 curl --location 'https://mkp-api.fptcloud.com/v1/responses' \
@@ -88,7 +82,6 @@ curl --location 'https://mkp-api.fptcloud.com/v1/responses' \
 ## Reasoning
 **Some models support reasoning mode, which enables multi-step reasoning before generating the final response.
 This mode is useful for analytical or logical problems. **
-
 ### Input sample
 ```bash
 curl --location 'https://mkp-api.fptcloud.com/v1/responses' \
