@@ -2,9 +2,9 @@
 ```bash
 curl --location 'https://mkp-api.fptcloud.com/v1/responses' \
 --header 'Content-Type: application/json' \
---header 'Authorization: Bearer api-key5NA' \
+--header 'Authorization: Bearer your-api-key' \
 --data '{
-    "model": "gpt-oss-20b",
+    "model": "model-name",
     "input": "Tell me a three sentence bedtime story about a unicorn."
   }'
 ```
@@ -32,7 +32,7 @@ curl --location 'https://mkp-api.fptcloud.com/v1/responses' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer api-key' \
 --data '{
-  "model": "gpt-oss-20b",
+  "model": "model-name",
   "input": [
     {
       "role": "user",
