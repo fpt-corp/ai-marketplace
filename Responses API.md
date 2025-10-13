@@ -87,6 +87,7 @@ print(response)
 }
  ```
 ## Nodejs
+**Sample Input**
 ```bash
 import OpenAI from "openai";
 
