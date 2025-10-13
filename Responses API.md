@@ -1,6 +1,10 @@
-> OpenAI's most advanced interface for generating model responses. Supports text and image inputs, and text outputs. Create stateful interactions with the model, using the output of previous responses as input. Extend the model's capabilities with built-in tools for file search, web search, computer use, and more. Allow the model access to external systems and data using function calling.
+> Responses API is OpenAI's most advanced interface for generating model responses:
+> - Support text and image inputs, and text outputs.
+> - Create stateful interactions with the model, using the output of previous responses as input.
+> - Extend the model's capabilities with built-in tools for file search, web search, computer use, and more.
+> - Allow the model access to external systems and data using function calling.
 
-### cURL 
+## cURL 
 ```bash
 curl --location 'https://mkp-api.fptcloud.com/v1/responses' \
 --header 'Content-Type: application/json' \
@@ -11,8 +15,10 @@ curl --location 'https://mkp-api.fptcloud.com/v1/responses' \
   }'
 ```
 
-> Function calling: Give models access to new functionality and data they can use to follow instructions and respond to prompts.
-### Function calling 1
+## Function calling
+> Give models access to new functionality and data they can use to follow instructions and respond to prompts.
+Please refer to the following samples: 
+### cURL1
 ```bash
 curl --location 'https://mkp-api.fptcloud.com/v1/responses' \
 --header 'Content-Type: application/json' \
@@ -29,7 +35,7 @@ curl --location 'https://mkp-api.fptcloud.com/v1/responses' \
 ```
 
 
-### Function calling 2
+### cURL2
 ```bash
 curl --location 'https://mkp-api.fptcloud.com/v1/responses' \
 --header 'Content-Type: application/json' \
