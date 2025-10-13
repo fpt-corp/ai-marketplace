@@ -1,3 +1,5 @@
+> OpenAI's most advanced interface for generating model responses. Supports text and image inputs, and text outputs. Create stateful interactions with the model, using the output of previous responses as input. Extend the model's capabilities with built-in tools for file search, web search, computer use, and more. Allow the model access to external systems and data using function calling.
+
 ### cURL 
 ```bash
 curl --location 'https://mkp-api.fptcloud.com/v1/responses' \
@@ -9,6 +11,7 @@ curl --location 'https://mkp-api.fptcloud.com/v1/responses' \
   }'
 ```
 
+> Function calling: Give models access to new functionality and data they can use to follow instructions and respond to prompts.
 ### Function calling 1
 ```bash
 curl --location 'https://mkp-api.fptcloud.com/v1/responses' \
