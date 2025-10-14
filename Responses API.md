@@ -16,7 +16,7 @@ curl --location 'https://mkp-api.fptcloud.com/v1/responses' \
 ```
 ## Python
 **Sample Input**
-```bash
+```python
 from openai import OpenAI
 
 client = OpenAI()
@@ -28,7 +28,7 @@ response = client.responses.create(
 print(response)
 ```
 **Sample Output**
-```bash
+```json
 {
   "id": "resp_67ccd2bed1ec8190b14f964abc0542670bb6a6b452d3795b",
   "object": "response",
@@ -88,7 +88,7 @@ print(response)
  ```
 ## Nodejs
 **Sample Input**
-```bash
+```js
 import OpenAI from "openai";
 
 const openai = new OpenAI();
@@ -101,7 +101,7 @@ const response = await openai.responses.create({
 console.log(response);
  ```
 **Sample Output**
-```bash
+```json
 {
   "id": "resp_67ccd2bed1ec8190b14f964abc0542670bb6a6b452d3795b",
   "object": "response",
