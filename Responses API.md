@@ -1,7 +1,5 @@
 > Responses API is OpenAI's most advanced interface for generating model responses:
 > - Support text and image inputs, and text outputs.
-> - Create stateful interactions with the model, using the output of previous responses as input.
-> - Extend the model's capabilities with built-in tools for file search, web search, computer use, and more.
 > - Allow the model access to external systems and data using function calling.
 
 ## cURL 
