@@ -1,3 +1,4 @@
+> API Reference for ReRank model
 ### cURL
 ```bash
 curl --location 'https://mkp-api-stg.fptcloud.net/v1/rerank' \
