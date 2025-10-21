@@ -61,7 +61,7 @@ if __name__ == "__main__":
     print("Rerank Results:")
     print(result)
 ```
-### JavaScript
+### Nodejs
 ```js
 const axios = require('axios');
 
