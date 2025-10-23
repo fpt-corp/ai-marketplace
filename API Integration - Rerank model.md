@@ -1,7 +1,7 @@
 > API Reference for ReRank model
 ### cURL
 ```bash
-curl --location 'https://mkp-api-stg.fptcloud.net/v1/rerank' \
+curl --location 'https://mkp-api.fptcloud.net/v1/rerank' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer your-api-key' \
 --data '
