@@ -3,6 +3,7 @@
 > - Allow the model access to external systems and data using function calling.
 
 ## cURL 
+**Sample Input**
 ```bash
 curl --location 'https://mkp-api.fptcloud.com/v1/responses' \
 --header 'Content-Type: application/json' \
@@ -11,6 +12,81 @@ curl --location 'https://mkp-api.fptcloud.com/v1/responses' \
     "model": "model-name",
     "input": "Tell me a three sentence bedtime story about a unicorn."
   }'
+```
+**Sample Output**
+```bash
+{
+    "id": "resp_bGl0ZWxsbTpjdXN0b21fbGxtX3Byb3ZpZGVyOm9wZW5haTttb2RlbF9pZDo1ZWM2MWFiMDZjNzRlZWJhMmEzNDA3OTNlZWI5MzQxNmEzYzhhZWZhMWI1ZjgxZThlZDM4YTRiMjA4ZGRkZjU3O3Jlc3BvbnNlX2lkOnJlc3BfYTA2NGUwNmFlZTliNDNmNmFkY2IxMmU4ZDM5N2YyZTM=",
+    "created_at": 1760066683,
+    "error": null,
+    "incomplete_details": null,
+    "instructions": null,
+    "metadata": null,
+    "model": "gpt-oss-20b",
+    "object": "response",
+    "output": [
+        {
+            "id": "rs_f8397551c100457999799cbc43d96615",
+            "summary": [],
+            "type": "reasoning",
+            "content": [
+                {
+                    "text": "We need to respond with a three-sentence bedtime story about a unicorn. Probably whimsical. Just three sentences. Ensure it's bedtime. Provide a story. Use simple language. Ensure it's exactly three sentences. Probably no more. Let's produce.",
+                    "type": "reasoning_text"
+                }
+            ],
+            "encrypted_content": null,
+            "status": null
+        },
+        {
+            "id": "msg_d7bc6aa1b823482bbdcc21c5585293de",
+            "content": [
+                {
+                    "annotations": [],
+                    "text": "In the moonlit glade, Luna the unicorn found a silver feather that glowed like a tiny star, and she tucked it into her mane as a promise to keep the night bright. She whispered a lullaby to the whispering wind, and the wind carried her song to every sleeping creature, turning their dreams into gentle, twinkling constellations. As dawn painted the sky pink, Luna bowed to the sunrise, knowing that every night she would return with a new feather of hope for all the stars to shine.",
+                    "type": "output_text",
+                    "logprobs": null
+                }
+            ],
+            "role": "assistant",
+            "status": "completed",
+            "type": "message"
+        }
+    ],
+    "parallel_tool_calls": true,
+    "temperature": 0.6,
+    "tool_choice": "auto",
+    "tools": [],
+    "top_p": 0.9,
+    "max_output_tokens": 130996,
+    "previous_response_id": null,
+    "reasoning": null,
+    "status": "completed",
+    "text": null,
+    "truncation": "disabled",
+    "usage": {
+        "input_tokens": 76,
+        "input_tokens_details": {
+            "audio_tokens": null,
+            "cached_tokens": 48,
+            "text_tokens": null
+        },
+        "output_tokens": 163,
+        "output_tokens_details": {
+            "reasoning_tokens": 48,
+            "text_tokens": null,
+            "tool_output_tokens": 0
+        },
+        "total_tokens": 239
+    },
+    "user": null,
+    "store": null,
+    "background": false,
+    "max_tool_calls": null,
+    "prompt": null,
+    "service_tier": "auto",
+    "top_logprobs": null
+}
 ```
 ## Python
 **Sample Input**
