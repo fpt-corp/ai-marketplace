@@ -28,7 +28,7 @@ sox "$INPUT_FILE" -c 1 -r 16000 -b 16 "$OUTPUT_FILE"
 ```python
 from openai import OpenAI
 
-BASE_URL = "https://mkp-api.fptcloud.com"
+BASE_URL = "https://mkp-api.fptcloud.com/v1"
 API_KEY = "your-api-key"
 MODEL_NAME = "your-model-name"
 LANGUAGE = 'en'
