@@ -9,7 +9,7 @@ import json
 
 # === Configuration ===
 API_KEY = ""
-URL = "https://mkp-api.fptcloud.com"                          # Base URL for API
+URL = "https://mkp-api.fptcloud.com/v1"                          # Base URL for API
 MODEL="{model-name}"                                          # Model name
 PROMPT = "Code fibonaci in C++?"                              # The user prompt or question to send to the model
 
