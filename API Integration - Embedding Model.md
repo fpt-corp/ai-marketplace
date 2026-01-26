@@ -8,7 +8,7 @@ import json
 import os
 
 API_KEY = ""
-BASE_URL = "https://mkp-api.fptcloud.com"
+BASE_URL = "https://mkp-api.fptcloud.com/v1"
 MODEL = "{model-name}" # Your specific embedding model name
 
 # Your long input text (same potential length issue applies!)
@@ -65,7 +65,7 @@ from langchain_openai import OpenAIEmbeddings
 
 # === Configuration ===
 API_KEY = "" 
-BASE_URL = "https://mkp-api.fptcloud.com" 
+BASE_URL = "https://mkp-api.fptcloud.com/v1" 
 MODEL = "{model-name}"                         # Your specific embedding model
 
 TEXT = "Xin chào, tôi là một mô hình ngôn ngữ lớn. Tôi có thể giúp gì cho bạn hôm nay " * 390 # ~ 8192 tokens
@@ -131,7 +131,7 @@ from openai import OpenAI
 from transformers import AutoTokenizer
 
 API_KEY = ""
-BASE_URL = "https://mkp-api.fptcloud.com"
+BASE_URL = "https://mkp-api.fptcloud.com/v1"
 MODEL="{model-name}"
 
 TEXT="Xin chào, tôi là một mô hình ngôn ngữ lớn. Tôi có thể giúp gì cho bạn hôm nay " * 390 # ~ 8192 tokens
@@ -165,7 +165,7 @@ embedding_vector = get_embedding(TEXT, MODEL)
 const OpenAI = require('openai');
 
 const API_KEY = "";
-const BASE_URL = "https://mkp-api.fptcloud.com";
+const BASE_URL = "https://mkp-api.fptcloud.com/v1";
 const MODEL = "Vietnamese_Embedding"; 
 const TEXT = "Xin chào, tôi là một mô hình ngôn ngữ lớn. Tôi có thể giúp gì cho bạn hôm nay " 
 
