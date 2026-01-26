@@ -22,7 +22,7 @@ curl --location 'https://mkp-api.fptcloud.com/v1/rerank' \
 from openai import OpenAI
 
 client = OpenAI(
-    base_url="https://mkp-api.fptcloud.com",
+    base_url="https://mkp-api.fptcloud.com/v1",
     api_key="your_api_key"
 )
 
@@ -100,7 +100,7 @@ class RerankClient {
 // Example usage
 async function main() {
     const client = new RerankClient(
-        "https://mkp-api.fptcloud.com",
+        "https://mkp-api.fptcloud.com/v1",
         "your_api_key"
     );
     
