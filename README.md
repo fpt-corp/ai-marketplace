@@ -10,6 +10,7 @@ The AI Marketplace API uses API keys for authentication. Create, manage, and lea
 #### Authentication
   * All requests to the AI Marketplace API must include an `api-key` header with your API key. If you are using the Client SDKs, you will set the API when constructing a client, and then the SDK will send the header on your behalf with every request. If integrating directly with the API, you’ll need to send this header yourself.
   * Usage from these API requests counts as usage for the specified API Key and AI model.
+  * HTTP request header: "Authorization": f"Bearer {api_key}"
 
 ## Large Language Model
 [API Reference  for Large Language Model (LLM)](https://github.com/fpt-corp/ai-marketplace/blob/main/API%20Integration%20-%20Large%20Language%20Model.md)
