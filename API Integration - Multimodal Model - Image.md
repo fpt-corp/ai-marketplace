@@ -13,7 +13,7 @@ from openai import OpenAI
 
 # === Configuration ===
 API_KEY = ""
-BASE_URL = "https://mkp-api.fptcloud.com"                     # Base URL for API
+BASE_URL = "https://mkp-api.fptcloud.com/v1"                     # Base URL for API
 MODEL="{model-name}"                                          # Model name
 IMAGE_LINK = ""                                               # Image file
 
