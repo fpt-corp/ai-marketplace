@@ -19,7 +19,7 @@ async def stream_response():
         # Initialize the completion request
         response = await acompletion(
             model="{model-name}", 
-            api_base="https://mkp-api.fptcloud.com",    # Base URL for API
+            api_base="https://mkp-api.fptcloud.com/v1",    # Base URL for API
             api_key="{api-key}",          # Your API key
             messages=[                    # List of message objects. Please update the System prompt to have the model respond appropriately
                 {
@@ -53,7 +53,7 @@ if __name__ == '__main__':
 import requests
 import json
 
-url = "https://mkp-api.fptcloud.com/chat/completions"
+url = "https://mkp-api.fptcloud.com/v1/chat/completions"
 
 token = ""
 headers = {
@@ -103,7 +103,7 @@ for line in response.iter_lines():
 ```
 # cURL
 ```shell
-curl --location 'https://mkp-api.fptcloud.com/chat/completions' \
+curl --location 'https://mkp-api.fptcloud.com/v1/chat/completions' \
 --header 'Content-Type: application/json' \
 --header 'Authorization: Bearer {api-key}' \
 --header 'Cookie: cf_use_ob=0' \
@@ -140,7 +140,7 @@ from langchain_core.prompts import ChatPromptTemplate, SystemMessagePromptTempla
 from langchain_core.output_parsers import StrOutputParser
 
 API_KEY = "s"
-BASE_URL = "https://mkp-api.fptcloud.com"
+BASE_URL = "https://mkp-api.fptcloud.com/v1"
 MODEL = ""
 
 # Check if API_KEY is set (optional but good practice)
@@ -222,7 +222,7 @@ from PIL import Image
 from openai import OpenAI
 
 API_KEY = ""
-BASE_URL = "https://mkp-api.fptcloud.com"
+BASE_URL = "https://mkp-api.fptcloud.com/v1"
 MODEL=""
 
 client = OpenAI(
@@ -276,7 +276,7 @@ chat_non_stream("Bạn có thể giúp tôi mô tả về hệ mặt trời khô
 ```python
 const OpenAI = require('openai');
 const API_KEY = "";
-const BASE_URL = "https://mkp-api.fptcloud.com";
+const BASE_URL = "https://mkp-api.fptcloud.com/v1";
 const MODEL = "SaoLa-Llama3.1-planner"; 
 const USER_PROMPT = "Xin chào" 
 const openai = new OpenAI({ apiKey: API_KEY, baseURL: BASE_URL});
