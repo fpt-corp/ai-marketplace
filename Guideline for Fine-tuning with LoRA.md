@@ -9,7 +9,7 @@
 | **google/gemma-3-27b-it** (template 2 GPUs)   | Small dataset: `1e-5 → 5e-5`<br>medium/large dataset: `5e-5 → 1e-4` | 3 (start)   |
 | **meta-llama/Llama-3.3-70B** (template 4 GPUs) | Small dataset: `1e-5 → 2e-5`<br>medium/large dataset: `2e-5 → 1e-4` | 3 (start)   |
 
-- Small dataset: Under 1000 samples
+- Small dataset: Under 1K samples
 - Medium: 1K-10K samples
 - Large: Over 10K samples
 
@@ -215,8 +215,8 @@ The structure includes:
 
 **Data Split Recommendation**
 - Train/Validation split:** 80% / 20%.  
-- Small dataset (<1,000 samples): you may use the entire dataset for training, but quality will be harder to verify.  
-- Large dataset (>10,000 samples): always prepare a separate validation set.  
+- Small dataset (<1K samples): you may use the entire dataset for training, but quality will be harder to verify.  
+- Large dataset (>10K samples): always prepare a separate validation set.  
 
 
 ## 4. How to Prepare Your Dataset?
