@@ -1,0 +1,128 @@
+## Text-to-Speech API Reference
+
+> Generate speech audio from text using the FPT.AI-VITs model. Supports multiple output formats including `.mp3`, `.wav`, and `.caf` (iOS).
+
+
+### Endpoint
+
+```
+POST https://mkp-api.fptcloud.com/v1/audio/speech
+```
+
+
+
+### Request
+
+#### Headers
+
+| Header | Value |
+|---|---|
+| `Authorization` | `Bearer <your-api-key>` |
+| `Content-Type` | `application/json` |
+
+#### Body Parameters
+
+| Parameter | Type | Default | Description |
+|---|---|---|---|
+| `model` | `string` | **required** | Model name. Use `FPT.AI-VITs`. |
+| `input` | `string` | **required** | The text to synthesize. |
+| `voice` | `string` | `std_leminh` | Voice ID to use. See [Available Voices](#available-voices). |
+| `response_type` | `string` | `audio` | Output delivery format. One of `audio`, `base64`, or `zip`. |
+| `response_format` | `string \| string[]` | `wav` | Audio format(s). One of or a list of `mp3`, `wav`, `caf`. See [Response Format Rules](#response-format-rules). |
+| `speed` | `float` | `1` | Speech speed multiplier. |
+| `sample_rate` | `integer` | `22050` | Audio sample rate in Hz. |
+
+
+### Response Format Rules
+
+The allowed values for `response_format` depend on the chosen `response_type`:
+
+- **`response_type: "audio"`** — Returns a single audio file directly. `response_format` must be a single string or a list with exactly one element.
+  ```json
+  "response_format": "mp3"
+  // or
+  "response_format": ["mp3"]
+  ```
+
+- **`response_type: "base64"`** — Returns audio encoded in Base64. Supports multiple formats simultaneously.
+  ```json
+  "response_format": ["mp3", "caf", "wav"]
+  ```
+
+- **`response_type: "zip"`** — Returns a ZIP archive containing all requested audio files. Supports multiple formats simultaneously.
+  ```json
+  "response_format": ["mp3", "caf", "wav"]
+  ```
+
+
+
+### Examples
+
+#### Single audio file (default)
+
+```bash
+curl --request POST \
+  --url https://mkp-api.fptcloud.com/v1/audio/speech \
+  --header 'Authorization: Bearer <your-api-key>' \
+  --header 'Content-Type: application/json' \
+  --data '{
+    "model": "FPT.AI-VITs",
+    "input": "Xin chào, đây là bài kiểm tra.",
+    "voice": "banmai",
+    "response_type": "audio",
+    "response_format": "mp3",
+    "speed": 1,
+    "sample_rate": 22050
+  }'
+```
+
+#### Multiple formats as Base64
+
+Returns a JSON object with each requested format encoded in Base64 — suitable for applications that need both Android (`.mp3`) and iOS (`.caf`) outputs in a single request.
+
+```bash
+curl --request POST \
+  --url https://mkp-api.fptcloud.com/v1/audio/speech \
+  --header 'Authorization: Bearer <your-api-key>' \
+  --header 'Content-Type: application/json' \
+  --data '{
+    "model": "FPT.AI-VITs",
+    "input": "Xin chào, đây là bài kiểm tra.",
+    "voice": "banmai",
+    "response_type": "base64",
+    "response_format": ["mp3", "caf", "wav"],
+    "speed": 1,
+    "sample_rate": 22050
+  }'
+```
+
+#### Multiple formats as ZIP
+
+```bash
+curl --request POST \
+  --url https://mkp-api.fptcloud.com/v1/audio/speech \
+  --header 'Authorization: Bearer <your-api-key>' \
+  --header 'Content-Type: application/json' \
+  --data '{
+    "model": "FPT.AI-VITs",
+    "input": "Xin chào, đây là bài kiểm tra.",
+    "voice": "banmai",
+    "response_type": "zip",
+    "response_format": ["mp3", "caf"],
+    "speed": 1,
+    "sample_rate": 22050
+  }'
+```
+
+
+
+### Available Voices
+
+> Contact the FPT.AI Voice team for the full and up-to-date list of available voice IDs.
+
+
+
+### Notes
+
+- The staging environment is available at `https://mkp-api-stg.fptcloud.net` for testing.
+- To serve both **Android** (`.mp3`) and **iOS** (`.caf`) clients, use `response_type: "base64"` or `"zip"` with `response_format: ["mp3", "caf"]`.
